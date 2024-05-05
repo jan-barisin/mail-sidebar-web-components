@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyMail</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
+</head>
+<body>     
+    <div class="header">
+        <div class="menuNav">
+            <div class="main-menu"><span class="tooltiptext">Main menu</span>&#9776;</div>
+            <div>📬 MyMail</div>
+        </div>
+    </div>
+    <div class="compose">
+        &nbsp;&nbsp;✎ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compose
+    </div>
+
+    <app-sidebar-button text="Inbox" unreadCount="">
+        <span slot="icon">📥</span>
+    </app-sidebar-button>
+    <app-sidebar-button text="Starred">
+        <span slot="icon">⭐️ </span>
+    </app-sidebar-button>
+    <app-sidebar-button text="Snoozed" >
+        <span slot="icon">⏱</span>
+    </app-sidebar-button>
+    <app-sidebar-button text="Sent" >
+        <span slot="icon">➡️</span>
+    </app-sidebar-button>
+    <app-sidebar-button text="Draft" unreadCount="1">
+        <span slot="icon">📄</span>
+    </app-sidebar-button>
+
+    <template id="app-sidebar-button">
+        <style>
+            .sideBarButton {
+                display:flex;
+                align-items: center;
+                padding-left: 25px;
+                height: 30px;
+                width: 280px;
+            }
+            .sideBarButton:hover {
+                cursor: pointer;
+                opacity: 0.3;
+                background-color: rgb(197, 195, 195);
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+            .unreadCount {
+                margin-left: 150px;
+            }                  
+        </style>
+        <div class="sideBarButton">
+            <slot name="icon"></slot>
+            <span class="text"></span>
+            <span class="unreadCount"></span>
+        </div>
+    </template>
+</body>
+</html>
